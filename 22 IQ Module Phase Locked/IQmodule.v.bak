@@ -1,0 +1,6 @@
+module IQModule(
+	input CLOCK,
+	input [31:0] phaseInc,
+	output [6:0] hex0, hex1, hex2, hex3, hex4, hex5,
+	
+)
