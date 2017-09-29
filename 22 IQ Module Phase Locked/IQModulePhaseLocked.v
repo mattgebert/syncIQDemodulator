@@ -88,7 +88,7 @@ NCO sin2 (
 wire [6:0] hexM0 [5:0];
 wire signed [13:0] m0Q, m0I;
 wire [5:0] m0status;
-IQModule(
+IQModule iq1(
 	.CLK(CLOCK_50),
 	.phaseInc(32'd85899346), //[31:0]  // 85899345.92 * 50MHz / 2^32 = 1MHz
 	.sampleFreq(18'd50000), //In kHz specification. [17:0] 
