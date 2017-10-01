@@ -18,8 +18,8 @@ wire [N-1:0] conv = (int_unsigned - {1'b1, {(N-1){1'b0}}});
 //Consider unsigned 0000 --> signed 1000 == 0, ie not a zero middle point, rather the unsigned point is a minimum
 //The edgecase logic in here fixes that issue.
 wire edgecase = (int_unsigned == {(N){1'b0}});
-wire min = {{1'b1},{(N-2){1'b0}},{1'b1}}; //Min Value in 2's compliment
+wire [N-1:0] min = {{1'b1},{(N-2){1'b0}},{1'b1}}; //Min Value in 2's compliment
 
-assign int_signed[N-1:0] = edgecase ?  min : conv[N-1:0];
+assign int_signed[N-1:0] = edgecase ?  min[N-1:0] : conv[N-1:0];
 
 endmodule
