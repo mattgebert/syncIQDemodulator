@@ -94,12 +94,6 @@ IQModule iq1(
 	.sampleFreq(18'd50000), //In kHz specification. [17:0] 
 	.reset(reset),
 	.signal(inputB),
-/*	.HEX0(m0hex0), //[6:0]
-	.HEX1(m0hex1), 
-	.HEX2(m0hex2), 
-	.HEX3(m0hex3), 
-	.HEX4(m0hex4), 
-	.HEX5(m0hex5), */
 	.HEX(hexM0),
 	.Q(m0Q), //[13:0] 
 	.I(m0I), 
@@ -107,27 +101,17 @@ IQModule iq1(
 	.ncoValid(m0status[1]),
 	.displayStatus(m0status[0])
 );
-wire [13:0] QInotm0 [0:0] = '{QInot ? m0Q[13:0] : m0I[13:0]};
-/*wire [13:0] QInotm0 [0:0];// = QInot ? m0Q[13:0] : m0I[13:0];
-defparam m2.M = 1; //1Set
-defparam m2.N = 14; //14 Bits per set.
-MNMUX4to1 m2(
-	.sel({1'b0,QINot}),
-	.dataa('{m0I}),
-	.datab('{m0Q}),
-	.datac(),//not used
-	.datad(),//not used
-	.result(QInotm0)
-);*/
+
 
 //=======================================================
 //  IQ Modules MUXING
 //=======================================================
+//Disaplying to HEX
 wire [6:0] hexDisplay [5:0];
 wire [6:0] empty [5:0];
 assign empty = '{6{7'b0}};
-defparam m1.M = 6; //6 Sets
-defparam m1.N = 7; //7 Bits per set.
+defparam m1.M = 6; //6 Sets - 6 Displays
+defparam m1.N = 7; //7 Bits per set - 7 Lights Per Display
 MNMUX4to1 m1(
 	.sel(2'b0),
 	.dataa(hexM0),
@@ -136,6 +120,21 @@ MNMUX4to1 m1(
 	.datad(empty),
 	.result(hexDisplay)
 );
+//Select which channel to use:
+
+//Displaying I or Q Channel
+wire [13:0] QIdata [0:0];// = '{QInot ? m0Q[13:0] : m0I[13:0]};
+defparam m3.M = 1; //1Set
+defparam m3.N = 14; //14 Bits per set.
+MNMUX4to1 m3(
+	.sel({1'b0,QINot}),
+	.dataa('{m0I}),
+	.datab('{m0Q}),
+	.datac(),//not used
+	.datad(),//not used
+	.result(QIdata)
+);
+
 //=======================================================
 //  Device Output Drivers
 //=======================================================
@@ -186,7 +185,7 @@ conv_sign_to_unsign c1 (
 
 defparam c2.N = 14;
 conv_sign_to_unsign c2 (
-.int_signed(QInotm0[0]),
+.int_signed(QIdata[0]),
 .int_unsigned(outputB)
 );
 

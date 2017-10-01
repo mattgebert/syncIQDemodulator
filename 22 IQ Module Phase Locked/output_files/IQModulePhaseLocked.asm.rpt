@@ -1,5 +1,5 @@
 Assembler report for IQModulePhaseLocked
-Fri Sep  1 17:17:23 2017
+Sun Oct  1 14:46:57 2017
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Sep  1 17:17:23 2017 ;
+; Assembler Status      ; Successful - Sun Oct  1 14:46:57 2017 ;
 ; Revision Name         ; IQModulePhaseLocked                   ;
 ; Top-level Entity Name ; IQModulePhaseLocked                   ;
 ; Family                ; Cyclone V                             ;
@@ -104,8 +104,8 @@ applicable agreement for further details.
 ; Option         ; Setting                          ;
 +----------------+----------------------------------+
 ; Device         ; 5CSEMA5F31C6                     ;
-; JTAG usercode  ; 0x066B4AFC                       ;
-; Checksum       ; 0x066B4AFC                       ;
+; JTAG usercode  ; 0x06661F18                       ;
+; Checksum       ; 0x06661F18                       ;
 +----------------+----------------------------------+
 
 
@@ -115,12 +115,12 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Fri Sep  1 17:17:11 2017
+    Info: Processing started: Sun Oct  1 14:46:45 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off IQModulePhaseLocked -c IQModulePhaseLocked
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 892 megabytes
-    Info: Processing ended: Fri Sep  1 17:17:23 2017
+    Info: Peak virtual memory: 855 megabytes
+    Info: Processing ended: Sun Oct  1 14:46:57 2017
     Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:12
 

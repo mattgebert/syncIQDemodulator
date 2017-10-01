@@ -10,6 +10,7 @@ module IQModule(
 	//output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
 	output signed [13:0] Q, I,
 	output [3:0] filtValid,
+	output [1:0] filtError,
 	output ncoValid, displayStatus
 );
 //=======================================================
@@ -22,7 +23,7 @@ module IQModule(
 wire	signed	[13:0]	sin_out1, cos_out1;
 NCO sin1         (
   .phi_inc_i(phaseIncCorr),
-  .clk	    (CLOCK),
+  .clk	    (CLK),
   .reset_n  (!reset),
   .clken	 (1'b1),
   .fsin_o	 (sin_out1),
@@ -34,21 +35,21 @@ NCO sin1         (
 //  Modules
 //=======================================================
 //Mixer:
-wire signed [28:0] mixed1, mixed2;
-lpm_mult_1415bit l1(//Mixes data from ADC-DA with NCO SW Freq
+wire signed [27:0] mixed1, mixed2;
+lpm_mult_14bit l1(//Mixes data from ADC-DA with NCO SW Freq
 	.aclr(reset),
 	.clken(1'b1),
 	.clock(CLK),
 	.dataa(signal),
-	.datab({sin_out1[13],1'b0,sin_out1[12:0]}),
+	.datab(sin_out1),
 	.result(mixed1)
  );
-lpm_mult_1415bit l2(//Mixes data from ADC-DB with NCO SW Freq
+lpm_mult_14bit l2(//Mixes data from ADC-DB with NCO SW Freq
 	.aclr(reset),
 	.clken(1'b1),
 	.clock(CLK),
 	.dataa(signal),
-	.datab({cos_out1[13],1'b0,cos_out1[12:0]}),
+	.datab(cos_out1),
 	.result(mixed2)
   );
   
@@ -57,25 +58,25 @@ wire [32:0] filtered1, filtered2;
 fir_filter f1 (
 	.clk(CLK),              //Input data is 50MHz, and we'll filter it at 1MHz.
 	.reset_n(~reset),
-	.ast_sink_data({mixed1[27],mixed1[25:13]}),
+	.ast_sink_data(mixed1[26:13]),
 	.ast_sink_valid(2'b11),
 	.ast_sink_error(2'b00),
 	.ast_source_data(filtered1),
 	.ast_source_valid(filtValid[3:2]),
-	.ast_source_error()
+	.ast_source_error(filtError[1])
 );
 fir_filter f2 (
 	.clk(CLK),
 	.reset_n(~reset),
-	.ast_sink_data({mixed2[27],mixed2[25:13]}),
+	.ast_sink_data(mixed2[26:13]),
 	.ast_sink_valid(2'b11),
 	.ast_sink_error(2'b00),
 	.ast_source_data(filtered2),
 	.ast_source_valid(filtValid[1:0]),
-	.ast_source_error()
+	.ast_source_error(filtError[0])
 );
-assign I = filtered1[28:15];
-assign Q = filtered2[28:15];
+assign I = filtered1[29:16];
+assign Q = filtered2[29:16];
 
 //=======================================================
 // Phase Correction Specification
