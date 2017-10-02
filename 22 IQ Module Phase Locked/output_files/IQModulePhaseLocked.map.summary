@@ -1,17 +1,12 @@
-Analysis & Synthesis Status : Successful - Sun Oct  1 14:45:24 2017
+Analysis & Synthesis Status : Failed - Mon Oct  2 11:48:36 2017
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
 Revision Name : IQModulePhaseLocked
 Top-level Entity Name : IQModulePhaseLocked
 Family : Cyclone V
-Logic utilization (in ALMs) : N/A
-Total registers : 5966
-Total pins : 150
-Total virtual pins : 0
-Total block memory bits : 2,249,728
-Total DSP Blocks : 45
-Total HSSI RX PCSs : 0
-Total HSSI PMA RX Deserializers : 0
-Total HSSI TX PCSs : 0
-Total HSSI TX Channels : 0
-Total PLLs : 0
-Total DLLs : 0
+Logic utilization (in ALMs) : N/A until Partition Merge
+Total registers : N/A until Partition Merge
+Total pins : N/A until Partition Merge
+Total virtual pins : N/A until Partition Merge
+Total block memory bits : N/A until Partition Merge
+Total PLLs : N/A until Partition Merge
+Total DLLs : N/A until Partition Merge
