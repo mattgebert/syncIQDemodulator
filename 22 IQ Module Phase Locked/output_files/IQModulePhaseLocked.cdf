@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEMA5F31) Path("/home/matt-g/Documents/20170815Quartus/22 IQ Module Phase Locked/output_files/") File("IQModulePhaseLocked.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSEMA5F31) Path("/home/matt-g/Documents/syncIQDemodulator/22 IQ Module Phase Locked/output_files/") File("IQModulePhaseLocked.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

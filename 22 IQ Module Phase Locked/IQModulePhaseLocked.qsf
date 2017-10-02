@@ -49,18 +49,6 @@ set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE Commonfunctions/MNMUX4to1.v
-set_global_assignment -name VERILOG_FILE Commonfunctions/phaseCorrector.v
-set_global_assignment -name VERILOG_FILE Commonfunctions/kHzDisplay.v
-set_global_assignment -name VERILOG_FILE Commonfunctions/conv_unsign_to_sign.v
-set_global_assignment -name VERILOG_FILE Commonfunctions/conv_sign_to_unsign.v
-set_global_assignment -name QIP_FILE Megafunctions/FIR/fir_filter.qip
-set_global_assignment -name QIP_FILE Megafunctions/LPM/lpm_mult_14bit.qip
-set_global_assignment -name QIP_FILE Megafunctions/LPM/lpm_mult_1415bit.qip
-set_global_assignment -name QIP_FILE Megafunctions/NCO/NCO.qip
-set_global_assignment -name QIP_FILE Megafunctions/ADDSUB/addsub.qip
-set_global_assignment -name VERILOG_FILE IQModulePhaseLocked.v
-set_global_assignment -name VERILOG_FILE IQmodule.v
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_location_assignment PIN_K7 -to AUD_ADCDAT
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_ADCDAT
@@ -713,7 +701,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_NXT
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_STP
 set_global_assignment -name ENABLE_SIGNALTAP ON
 set_global_assignment -name USE_SIGNALTAP_FILE output_files/stp1.stp
-set_global_assignment -name SIGNALTAP_FILE output_files/stp1.stp
 set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to CLOCK_50 -section_id auto_signaltap_0
@@ -1283,5 +1270,19 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LE
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=8192" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=41924" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=8192" -section_id auto_signaltap_0
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name QIP_FILE ../Megafunctions/NCO/NCO.qip
+set_global_assignment -name QIP_FILE ../Megafunctions/LPM/lpm_mult_1415bit.qip
+set_global_assignment -name QIP_FILE ../Megafunctions/LPM/lpm_mult_14bit.qip
+set_global_assignment -name QIP_FILE ../Megafunctions/FIR/fir_filter.qip
+set_global_assignment -name QIP_FILE ../Megafunctions/ADDSUB/addsub.qip
+set_global_assignment -name VERILOG_FILE ../Commonfunctions/phaseCorrector.v
+set_global_assignment -name VERILOG_FILE ../Commonfunctions/MNMUX4to1.v
+set_global_assignment -name VERILOG_FILE ../Commonfunctions/kHzDisplay.v
+set_global_assignment -name VERILOG_FILE ../Commonfunctions/conv_unsign_to_sign.v
+set_global_assignment -name VERILOG_FILE ../Commonfunctions/conv_sign_to_unsign.v
+set_global_assignment -name VERILOG_FILE IQModulePhaseLocked.v
+set_global_assignment -name VERILOG_FILE IQmodule.v
 set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -20,7 +20,7 @@ addsub a1(
 	.add_sub(1'b0), //1 to add, 0 to subtract
 	.clock(CLK),
 	.dataa(phaseInc),
-	.datab((phaseInc>>17)-(phaseInc>>21)-(phaseInc>>22)+(phaseInc>>23)-(phaseInc>>24)+(phaseInc>>25)-(phaseInc>>26) - (phaseInc>>28) +(phaseInc>>29) -(phaseInc>>30) + (phaseInc>>32)),
+	.datab((phaseInc>>17)-(phaseInc>>21)+(phaseInc>>22)+(phaseInc>>23)+(phaseInc>>24)-(phaseInc>>25)-(phaseInc>>26) + (phaseInc>>28) + (phaseInc>>29) -(phaseInc>>30) - (phaseInc>>31)),
 	.result(phaseIncCorr)
 );
 

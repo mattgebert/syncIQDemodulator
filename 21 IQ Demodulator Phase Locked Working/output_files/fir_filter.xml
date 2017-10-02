@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<instance entity-name="altera_fir_compiler_ii" version="13.1" >
+<generic name="deviceFamily" value="Cyclone V" />
+<generic name="filterType" value="Single Rate" />
+<generic name="interpFactor" value="1" />
+<generic name="decimFactor" value="1" />
+<generic name="L_bandsFilter" value="All taps" />
+<generic name="clockRate" value="50" />
+<generic name="clockSlack" value="0" />
+<generic name="speedGrade" value="Medium" />
+<generic name="coeffReload" value="false" />
+<generic name="baseAddress" value="0" />
+<generic name="readWriteMode" value="Read/Write" />
+<generic name="backPressure" value="false" />
+<generic name="symmetryMode" value="Non Symmetry" />
+<generic name="delayRAMBlockThreshold" value="20" />
+<generic name="dualMemDistRAMThreshold" value="1280" />
+<generic name="mRAMThreshold" value="1000000" />
+<generic name="hardMultiplierThreshold" value="-1" />
+<generic name="inputRate" value="50" />
+<generic name="inputChannelNum" value="1" />
+<generic name="inputType" value="Signed Binary" />
+<generic name="inputBitWidth" value="14" />
+<generic name="inputFracBitWidth" value="0" />
+<generic name="coeffSetRealValue" value="9.366599E-5,1.132102E-4,1.78965E-4,2.674282E-4,3.831999E-4,5.312185E-4,7.166826E-4,9.449761E-4,0.001221556,0.001551822,0.001940978,0.002393902,0.002914974,0.003507921,0.004175672,0.004920191,0.005742358,0.006641828,0.007616874,0.008664399,0.009779797,0.01095698,0.01218834,0.01346484,0.01477603,0.01611024,0.0174547,0.01879568,0.02011872,0.02140896,0.02265127,0.02383057,0.02493216,0.02594189,0.02684657,0.02763409,0.02829381,0.0288167,0.02919549,0.02942492,0.02950175,0.02942492,0.02919549,0.0288167,0.02829381,0.02763409,0.02684656,0.02594189,0.02493216,0.02383057,0.02265126,0.02140896,0.02011872,0.01879567,0.01745469,0.01611024,0.01477602,0.01346483,0.01218834,0.01095698,0.009779792,0.008664395,0.007616871,0.006641824,0.005742355,0.004920188,0.00417567,0.003507919,0.002914972,0.0023939,0.001940977,0.001551821,0.001221555,9.449753E-4,7.166821E-4,5.312181E-4,3.831992E-4,2.674279E-4,1.789646E-4,1.132099E-4" />
+<generic name="coeffType" value="Signed Binary" />
+<generic name="coeffScaling" value="Auto" />
+<generic name="coeffBitWidth" value="12" />
+<generic name="coeffFracBitWidth" value="0" />
+<generic name="outType" value="Signed Binary" />
+<generic name="outMSBRound" value="Truncation" />
+<generic name="outMsbBitRem" value="0" />
+<generic name="outLSBRound" value="Truncation" />
+<generic name="outLsbBitRem" value="0" />
+<generic name="resoureEstimation" value="1000,1200,10" />
+<generic name="bankCount" value="1" />
+<generic name="bankDisplay" value="0" />
+</instance>

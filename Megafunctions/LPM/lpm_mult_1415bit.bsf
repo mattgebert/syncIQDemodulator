@@ -1,0 +1,89 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 0 0 168 144)
+	(text "lpm_mult_1415bit" (rect 37 0 151 14)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 131 25 140)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 25 10)(font "Arial" (font_size 8)))
+		(text "clock" (rect 4 22 27 31)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 88 32))
+	)
+	(port
+		(pt 0 56)
+		(input)
+		(text "dataa[13..0]" (rect 0 0 56 10)(font "Arial" (font_size 8)))
+		(text "dataa[13..0]" (rect 4 46 54 55)(font "Arial" (font_size 8)))
+		(line (pt 0 56)(pt 72 56)(line_width 3))
+	)
+	(port
+		(pt 0 88)
+		(input)
+		(text "datab[14..0]" (rect 0 0 56 10)(font "Arial" (font_size 8)))
+		(text "datab[14..0]" (rect 4 78 54 87)(font "Arial" (font_size 8)))
+		(line (pt 0 88)(pt 72 88)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "aclr" (rect 0 0 20 10)(font "Arial" (font_size 8)))
+		(text "aclr" (rect 4 102 21 111)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 88 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "clken" (rect 0 0 25 10)(font "Arial" (font_size 8)))
+		(text "clken" (rect 4 118 27 127)(font "Arial" (font_size 8)))
+		(line (pt 0 128)(pt 100 128))
+	)
+	(port
+		(pt 168 72)
+		(output)
+		(text "result[28..0]" (rect 0 0 55 10)(font "Arial" (font_size 8)))
+		(text "result[28..0]" (rect 118 62 168 71)(font "Arial" (font_size 8)))
+		(line (pt 168 72)(pt 104 72)(line_width 3))
+	)
+	(drawing
+		(text "Signed" (rect 104 72 232 152)(font "Arial" ))
+		(text "multiplication" (rect 104 82 254 172)(font "Arial" ))
+		(line (pt 88 32)(pt 88 56))
+		(line (pt 82 66)(pt 94 78)(line_width 3))
+		(line (pt 82 78)(pt 94 66)(line_width 3))
+		(line (pt 72 56)(pt 77 61)(line_width 3))
+		(line (pt 72 88)(pt 77 83)(line_width 3))
+		(line (pt 88 88)(pt 88 111))
+		(line (pt 100 88)(pt 100 127))
+		(line (pt 100 87)(pt 96 83))
+		(line (pt 0 0)(pt 169 0))
+		(line (pt 169 0)(pt 169 146))
+		(line (pt 0 146)(pt 169 146))
+		(line (pt 0 0)(pt 0 146))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+		(circle (rect 72 56 104 88))
+	)
+)

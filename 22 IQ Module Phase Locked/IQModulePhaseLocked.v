@@ -88,18 +88,12 @@ NCO sin2 (
 wire [6:0] hexM0 [5:0];
 wire signed [13:0] m0Q, m0I;
 wire [5:0] m0status;
-IQModule(
+IQModule iq0(
 	.CLK(CLOCK_50),
 	.phaseInc(32'd85899346), //[31:0]  // 85899345.92 * 50MHz / 2^32 = 1MHz
 	.sampleFreq(18'd50000), //In kHz specification. [17:0] 
 	.reset(reset),
 	.signal(inputB),
-/*	.HEX0(m0hex0), //[6:0]
-	.HEX1(m0hex1), 
-	.HEX2(m0hex2), 
-	.HEX3(m0hex3), 
-	.HEX4(m0hex4), 
-	.HEX5(m0hex5), */
 	.HEX(hexM0),
 	.Q(m0Q), //[13:0] 
 	.I(m0I), 
@@ -107,35 +101,98 @@ IQModule(
 	.ncoValid(m0status[1]),
 	.displayStatus(m0status[0])
 );
-wire [13:0] QInotm0 [0:0] = '{QInot ? m0Q[13:0] : m0I[13:0]};
-/*wire [13:0] QInotm0 [0:0];// = QInot ? m0Q[13:0] : m0I[13:0];
-defparam m2.M = 1; //1Set
-defparam m2.N = 14; //14 Bits per set.
-MNMUX4to1 m2(
-	.sel({1'b0,QINot}),
-	.dataa('{m0I}),
-	.datab('{m0Q}),
-	.datac(),//not used
-	.datad(),//not used
-	.result(QInotm0)
-);*/
 
+wire [6:0] hexM1 [5:0];
+wire signed [13:0] m1Q, m1I;
+wire [5:0] m1status;
+IQModule iq1(
+	.CLK(CLOCK_50),
+	.phaseInc(32'd137438953), //[31:0]  // 137438953.472 * 50MHz / 2^32 = 1.6MHz
+	.sampleFreq(18'd50000), //In kHz specification. [17:0] 
+	.reset(reset),
+	.signal(inputB),
+	.HEX(hexM1),
+	.Q(m1Q), //[13:0] 
+	.I(m1I), 
+	.filtValid(m1status[5:2]), //[3:0] 
+	.ncoValid(m1status[1]),
+	.displayStatus(m1status[0])
+);
+/*
+wire [6:0] hexM2 [5:0];
+wire signed [13:0] m2Q, m2I;
+wire [5:0] m2status;
+IQModule iq2(
+	.CLK(CLOCK_50),
+	.phaseInc(32'd21904333), //[31:0]  // 21904333.2096 * 50MHz / 2^32 = 0.255MHz
+	.sampleFreq(18'd50000), //In kHz specification. [17:0] 
+	.reset(reset),
+	.signal(inputB),
+	.HEX(hexM2),
+	.Q(m2Q), //[13:0] 
+	.I(m2I), 
+	.filtValid(m2status[5:2]), //[3:0] 
+	.ncoValid(m2status[1]),
+	.displayStatus(m2status[0])
+);
+*/
 //=======================================================
 //  IQ Modules MUXING
 //=======================================================
+//Create Select Signal from SW Input:
+reg [1:0] IQSel;
+always @(posedge CLOCK_50)
+begin
+	casex(IQSW)
+		4'b0001: IQSel <= 2'b00;
+		4'b001x:	IQSel <= 2'b01;
+		4'b01xx:	IQSel <= 2'b10;
+		4'b1xxx: IQSel <= 2'b11;
+		default:	IQSel <= 2'b00;
+	endcase
+end
+
+//Choose which IQ Module to use:
+wire [27:0] QIdata [0:0];// = '{QInot ? m0Q[13:0] : m0I[13:0]};
+defparam m2.M = 1; //1Set
+defparam m2.N = 28; //28 Bits per set.
+MNMUX4to1 m2(
+	.sel(IQSel),
+	.dataa('{{m0I, m0Q}}),
+	.datab('{{m1I, m1Q}}),
+	.datac(),//('{{m2I, m2Q}}),//not used
+	.datad(),//not used
+	.result(QIdata)
+);
+
+//Displaying I or Q Channel
+wire [13:0] QorI [0:0];// = '{QInot ? m0Q[13:0] : m0I[13:0]};
+defparam m3.M = 1; //1Set
+defparam m3.N = 14; //14 Bits per set.
+MNMUX4to1 m3(
+	.sel({1'b0,QInot}),
+	.dataa('{QIdata[0][27:14]}),
+	.datab('{QIdata[0][13:0]}),
+	.datac(),//not used
+	.datad(),//not used
+	.result(QorI)
+);
+
+//Disaplying to HEX
 wire [6:0] hexDisplay [5:0];
 wire [6:0] empty [5:0];
 assign empty = '{6{7'b0}};
-defparam m1.M = 6; //6 Sets
-defparam m1.N = 7; //7 Bits per set.
+defparam m1.M = 6; //6 Sets - 6 Displays
+defparam m1.N = 7; //7 Bits per set - 7 Lights Per Display
 MNMUX4to1 m1(
-	.sel(2'b0),
+	.sel(IQSel),
 	.dataa(hexM0),
-	.datab(empty),
-	.datac(empty),
+	.datab(hexM1),
+	.datac(empty),//hexM2),
 	.datad(empty),
 	.result(hexDisplay)
 );
+
 //=======================================================
 //  Device Output Drivers
 //=======================================================
@@ -149,7 +206,7 @@ assign	LEDR[9:4] = m0status;
 wire reset = ~KEY[0];
 wire QInot = SW[0];
 wire mixerSin = SW[1];
-wire [31:0] phaseincsw = {4'b0, SW[9:2], 19'd0};
+wire [3:0] IQSW = SW[9:6];
 
 //=======================================================
 // Phase Correction Specification
@@ -186,7 +243,7 @@ conv_sign_to_unsign c1 (
 
 defparam c2.N = 14;
 conv_sign_to_unsign c2 (
-.int_signed(QInotm0[0]),
+.int_signed(QorI[0]),
 .int_unsigned(outputB)
 );
 
