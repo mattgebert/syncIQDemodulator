@@ -118,7 +118,7 @@ IQModule iq1(
 	.ncoValid(m1status[1]),
 	.displayStatus(m1status[0])
 );
-
+/*
 wire [6:0] hexM2 [5:0];
 wire signed [13:0] m2Q, m2I;
 wire [5:0] m2status;
@@ -135,7 +135,7 @@ IQModule iq2(
 	.ncoValid(m2status[1]),
 	.displayStatus(m2status[0])
 );
-
+*/
 //=======================================================
 //  IQ Modules MUXING
 //=======================================================
@@ -160,7 +160,7 @@ MNMUX4to1 m2(
 	.sel(IQSel),
 	.dataa('{{m0I, m0Q}}),
 	.datab('{{m1I, m1Q}}),
-	.datac('{{m2I, m2Q}}),//not used
+	.datac(),//('{{m2I, m2Q}}),//not used
 	.datad(),//not used
 	.result(QIdata)
 );
@@ -170,7 +170,7 @@ wire [13:0] QorI [0:0];// = '{QInot ? m0Q[13:0] : m0I[13:0]};
 defparam m3.M = 1; //1Set
 defparam m3.N = 14; //14 Bits per set.
 MNMUX4to1 m3(
-	.sel({1'b0,QINot}),
+	.sel({1'b0,QInot}),
 	.dataa('{QIdata[0][27:14]}),
 	.datab('{QIdata[0][13:0]}),
 	.datac(),//not used
@@ -188,7 +188,7 @@ MNMUX4to1 m1(
 	.sel(IQSel),
 	.dataa(hexM0),
 	.datab(hexM1),
-	.datac(hexM2),
+	.datac(empty),//hexM2),
 	.datad(empty),
 	.result(hexDisplay)
 );
