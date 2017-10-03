@@ -202,7 +202,7 @@ MNMUX4to1 m1(
 assign	DAC_DA = {14{sin_out_sync_MHz10[13]}}; //Operates as a Square wave on the DC Analog output.
 assign	DAC_DB = outputB; //connected to QInotm0
 assign	HEX0 = hexDisplay[0], HEX1 = hexDisplay[1], HEX2 = hexDisplay[2], HEX3 = hexDisplay[3], HEX4 = hexDisplay[4], HEX5 = hexDisplay[5];
-assign	LEDR[6:0] = m0status;
+assign	LEDR[7:0] = m0status;
 //=======================================================
 //  Physical Controls
 //=======================================================
