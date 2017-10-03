@@ -87,7 +87,7 @@ NCO sin2 (
 //wire [6:0] m0hex0, m0hex1, m0hex2,m0hex3,m0hex4,m0hex5;
 wire [6:0] hexM0 [5:0];
 wire signed [13:0] m0Q, m0I;
-wire [5:0] m0status;
+wire [7:0] m0status;
 IQModule iq0(
 	.CLK(CLOCK_50),
 	.phaseInc(32'd85899346), //[31:0]  // 85899345.92 * 50MHz / 2^32 = 1MHz
@@ -97,31 +97,33 @@ IQModule iq0(
 	.HEX(hexM0),
 	.Q(m0Q), //[13:0] 
 	.I(m0I), 
-	.filtValid(m0status[5:2]), //[3:0] 
+	.filtValid(m0status[7:6]), //[3:0] 
+	.filtError(m0status[5:2]),
 	.ncoValid(m0status[1]),
 	.displayStatus(m0status[0])
 );
 
 wire [6:0] hexM1 [5:0];
 wire signed [13:0] m1Q, m1I;
-wire [5:0] m1status;
+wire [7:0] m1status;
 IQModule iq1(
 	.CLK(CLOCK_50),
-	.phaseInc(32'd137438953), //[31:0]  // 137438953.472 * 50MHz / 2^32 = 1.6MHz
+	.phaseInc(32'd8589935), //[31:0]  // 137438953.472 * 50MHz / 2^32 = 1.6MHz // 8589934.592 * 50Mhz / 2^32 = 0.1MHz
 	.sampleFreq(18'd50000), //In kHz specification. [17:0] 
 	.reset(reset),
 	.signal(inputB),
 	.HEX(hexM1),
 	.Q(m1Q), //[13:0] 
 	.I(m1I), 
-	.filtValid(m1status[5:2]), //[3:0] 
+	.filtValid(m1status[7:6]), //[3:0] 
+	.filtError(m1status[5:2]),
 	.ncoValid(m1status[1]),
 	.displayStatus(m1status[0])
 );
 /*
 wire [6:0] hexM2 [5:0];
 wire signed [13:0] m2Q, m2I;
-wire [5:0] m2status;
+wire [7:0] m2status;
 IQModule iq2(
 	.CLK(CLOCK_50),
 	.phaseInc(32'd21904333), //[31:0]  // 21904333.2096 * 50MHz / 2^32 = 0.255MHz
@@ -131,7 +133,8 @@ IQModule iq2(
 	.HEX(hexM2),
 	.Q(m2Q), //[13:0] 
 	.I(m2I), 
-	.filtValid(m2status[5:2]), //[3:0] 
+	.filtValid(m2status[7:6]), //[3:0] 
+	.filtError(m2status[5:2]),
 	.ncoValid(m2status[1]),
 	.displayStatus(m2status[0])
 );
@@ -199,13 +202,12 @@ MNMUX4to1 m1(
 assign	DAC_DA = {14{sin_out_sync_MHz10[13]}}; //Operates as a Square wave on the DC Analog output.
 assign	DAC_DB = outputB; //connected to QInotm0
 assign	HEX0 = hexDisplay[0], HEX1 = hexDisplay[1], HEX2 = hexDisplay[2], HEX3 = hexDisplay[3], HEX4 = hexDisplay[4], HEX5 = hexDisplay[5];
-assign	LEDR[9:4] = m0status;
+assign	LEDR[6:0] = m0status;
 //=======================================================
 //  Physical Controls
 //=======================================================
 wire reset = ~KEY[0];
 wire QInot = SW[0];
-wire mixerSin = SW[1];
 wire [3:0] IQSW = SW[9:6];
 
 //=======================================================

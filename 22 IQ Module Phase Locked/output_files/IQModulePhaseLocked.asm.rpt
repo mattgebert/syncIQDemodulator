@@ -1,5 +1,5 @@
 Assembler report for IQModulePhaseLocked
-Mon Oct  2 13:50:50 2017
+Tue Oct  3 18:16:13 2017
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Oct  2 13:50:50 2017 ;
+; Assembler Status      ; Successful - Tue Oct  3 18:16:13 2017 ;
 ; Revision Name         ; IQModulePhaseLocked                   ;
 ; Top-level Entity Name ; IQModulePhaseLocked                   ;
 ; Family                ; Cyclone V                             ;
@@ -78,15 +78,13 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+------------------------------------------------+
-; Assembler Encrypted IP Cores Summary           ;
-+--------+------------------------+--------------+
-; Vendor ; IP Core Name           ; License Type ;
-+--------+------------------------+--------------+
-; Altera ; "NCO" (6AF7 0014)      ; Licensed     ;
-; Altera ; Signal Tap (6AF7 BCE1) ; Licensed     ;
-; Altera ; Signal Tap (6AF7 BCEC) ; Licensed     ;
-+--------+------------------------+--------------+
++-------------------------------------------+
+; Assembler Encrypted IP Cores Summary      ;
++--------+-------------------+--------------+
+; Vendor ; IP Core Name      ; License Type ;
++--------+-------------------+--------------+
+; Altera ; "NCO" (6AF7 0014) ; Licensed     ;
++--------+-------------------+--------------+
 
 
 +---------------------------+
@@ -104,8 +102,8 @@ applicable agreement for further details.
 ; Option         ; Setting                          ;
 +----------------+----------------------------------+
 ; Device         ; 5CSEMA5F31C6                     ;
-; JTAG usercode  ; 0x07743D40                       ;
-; Checksum       ; 0x07743D40                       ;
+; JTAG usercode  ; 0x01F18C78                       ;
+; Checksum       ; 0x01F18C78                       ;
 +----------------+----------------------------------+
 
 
@@ -115,13 +113,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Mon Oct  2 13:50:34 2017
+    Info: Processing started: Tue Oct  3 18:16:00 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off IQModulePhaseLocked -c IQModulePhaseLocked
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 1025 megabytes
-    Info: Processing ended: Mon Oct  2 13:50:51 2017
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:16
+    Info: Peak virtual memory: 980 megabytes
+    Info: Processing ended: Tue Oct  3 18:16:13 2017
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:13
 
 

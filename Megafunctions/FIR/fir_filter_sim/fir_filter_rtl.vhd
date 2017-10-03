@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from fir_filter_rtl
--- VHDL created on Mon Aug 28 17:25:03 2017
+-- VHDL created on Tue Oct  3 18:10:42 2017
 
 
 library IEEE;
@@ -89,85 +89,85 @@ architecture normal of fir_filter_rtl is
         0 => TO_SIGNED(26,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k5 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(36,12),
+        0 => TO_SIGNED(37,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k6 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(49,12),
+        0 => TO_SIGNED(50,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k7 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(65,12),
+        0 => TO_SIGNED(66,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k8 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(84,12),
+        0 => TO_SIGNED(85,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k9 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(107,12),
+        0 => TO_SIGNED(108,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k10 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(134,12),
+        0 => TO_SIGNED(135,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k11 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(166,12),
+        0 => TO_SIGNED(167,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k12 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(202,12),
+        0 => TO_SIGNED(203,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k13 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(243,12),
+        0 => TO_SIGNED(245,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k14 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(289,12),
+        0 => TO_SIGNED(291,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k15 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(341,12),
+        0 => TO_SIGNED(343,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k16 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(398,12),
+        0 => TO_SIGNED(400,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k17 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(460,12),
+        0 => TO_SIGNED(463,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k18 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(528,12),
+        0 => TO_SIGNED(530,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k19 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(601,12),
+        0 => TO_SIGNED(603,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k20 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(678,12),
+        0 => TO_SIGNED(681,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k21 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(760,12),
+        0 => TO_SIGNED(762,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k22 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(845,12),
+        0 => TO_SIGNED(848,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k23 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(934,12),
+        0 => TO_SIGNED(936,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k24 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(1025,12),
+        0 => TO_SIGNED(1027,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k25 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(1117,12),
+        0 => TO_SIGNED(1120,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k26 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(1211,12),
+        0 => TO_SIGNED(1213,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k27 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(1304,12),
+        0 => TO_SIGNED(1306,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k28 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(1395,12),
+        0 => TO_SIGNED(1397,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k29 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(1485,12),
+        0 => TO_SIGNED(1487,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k30 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(1571,12),
+        0 => TO_SIGNED(1573,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma0_k31 : u0_m0_wo0_cma0_romtype := (
-        0 => TO_SIGNED(1653,12),
+        0 => TO_SIGNED(1654,12),
         others => (others => '0'));
     type u0_m0_wo0_cma0_s_type is array(0 to 31) of SIGNED(30 downto 0);
     signal u0_m0_wo0_cma0_s : u0_m0_wo0_cma0_s_type;
@@ -190,13 +190,13 @@ architecture normal of fir_filter_rtl is
     signal u0_m0_wo0_cma1_y : u0_m0_wo0_cma1_y_type;
     type u0_m0_wo0_cma1_romtype is array(0 to 7) of SIGNED(11 downto 0);
     signal u0_m0_wo0_cma1_k0 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1729,12),
+        0 => TO_SIGNED(1730,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k1 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1799,12),
+        0 => TO_SIGNED(1800,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k2 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1862,12),
+        0 => TO_SIGNED(1863,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k3 : u0_m0_wo0_cma1_romtype := (
         0 => TO_SIGNED(1917,12),
@@ -232,58 +232,58 @@ architecture normal of fir_filter_rtl is
         0 => TO_SIGNED(1917,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k14 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1862,12),
+        0 => TO_SIGNED(1863,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k15 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1799,12),
+        0 => TO_SIGNED(1800,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k16 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1729,12),
+        0 => TO_SIGNED(1730,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k17 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1653,12),
+        0 => TO_SIGNED(1654,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k18 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1571,12),
+        0 => TO_SIGNED(1573,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k19 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1485,12),
+        0 => TO_SIGNED(1487,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k20 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1395,12),
+        0 => TO_SIGNED(1397,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k21 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1304,12),
+        0 => TO_SIGNED(1306,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k22 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1211,12),
+        0 => TO_SIGNED(1213,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k23 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1117,12),
+        0 => TO_SIGNED(1120,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k24 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(1025,12),
+        0 => TO_SIGNED(1027,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k25 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(934,12),
+        0 => TO_SIGNED(936,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k26 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(845,12),
+        0 => TO_SIGNED(848,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k27 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(760,12),
+        0 => TO_SIGNED(762,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k28 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(678,12),
+        0 => TO_SIGNED(681,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k29 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(601,12),
+        0 => TO_SIGNED(603,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k30 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(528,12),
+        0 => TO_SIGNED(530,12),
         others => (others => '0'));
     signal u0_m0_wo0_cma1_k31 : u0_m0_wo0_cma1_romtype := (
-        0 => TO_SIGNED(460,12),
+        0 => TO_SIGNED(463,12),
         others => (others => '0'));
     type u0_m0_wo0_cma1_s_type is array(0 to 31) of SIGNED(30 downto 0);
     signal u0_m0_wo0_cma1_s : u0_m0_wo0_cma1_s_type;
@@ -306,40 +306,40 @@ architecture normal of fir_filter_rtl is
     signal u0_m0_wo0_cma2_y : u0_m0_wo0_cma2_y_type;
     type u0_m0_wo0_cma2_romtype is array(0 to 7) of SIGNED(10 downto 0);
     signal u0_m0_wo0_cma2_k0 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(398,11),
+        0 => TO_SIGNED(400,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k1 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(341,11),
+        0 => TO_SIGNED(343,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k2 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(289,11),
+        0 => TO_SIGNED(291,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k3 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(243,11),
+        0 => TO_SIGNED(245,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k4 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(202,11),
+        0 => TO_SIGNED(203,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k5 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(166,11),
+        0 => TO_SIGNED(167,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k6 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(134,11),
+        0 => TO_SIGNED(135,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k7 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(107,11),
+        0 => TO_SIGNED(108,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k8 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(84,11),
+        0 => TO_SIGNED(85,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k9 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(65,11),
+        0 => TO_SIGNED(66,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k10 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(49,11),
+        0 => TO_SIGNED(50,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k11 : u0_m0_wo0_cma2_romtype := (
-        0 => TO_SIGNED(36,11),
+        0 => TO_SIGNED(37,11),
         others => (others => '0'));
     signal u0_m0_wo0_cma2_k12 : u0_m0_wo0_cma2_romtype := (
         0 => TO_SIGNED(26,11),
@@ -570,40 +570,40 @@ begin
     -- u0_m0_wo0_cma2(CHAINMULTADD,170)@11
 --altera synthesis_off
     u0_m0_wo0_cma2_k0 <= (
-        0 => TO_SIGNED(398,11),
+        0 => TO_SIGNED(400,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k1 <= (
-        0 => TO_SIGNED(341,11),
+        0 => TO_SIGNED(343,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k2 <= (
-        0 => TO_SIGNED(289,11),
+        0 => TO_SIGNED(291,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k3 <= (
-        0 => TO_SIGNED(243,11),
+        0 => TO_SIGNED(245,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k4 <= (
-        0 => TO_SIGNED(202,11),
+        0 => TO_SIGNED(203,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k5 <= (
-        0 => TO_SIGNED(166,11),
+        0 => TO_SIGNED(167,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k6 <= (
-        0 => TO_SIGNED(134,11),
+        0 => TO_SIGNED(135,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k7 <= (
-        0 => TO_SIGNED(107,11),
+        0 => TO_SIGNED(108,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k8 <= (
-        0 => TO_SIGNED(84,11),
+        0 => TO_SIGNED(85,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k9 <= (
-        0 => TO_SIGNED(65,11),
+        0 => TO_SIGNED(66,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k10 <= (
-        0 => TO_SIGNED(49,11),
+        0 => TO_SIGNED(50,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k11 <= (
-        0 => TO_SIGNED(36,11),
+        0 => TO_SIGNED(37,11),
         others => (others => '0'));
     u0_m0_wo0_cma2_k12 <= (
         0 => TO_SIGNED(26,11),
@@ -766,13 +766,13 @@ begin
     -- u0_m0_wo0_cma1(CHAINMULTADD,169)@10
 --altera synthesis_off
     u0_m0_wo0_cma1_k0 <= (
-        0 => TO_SIGNED(1729,12),
+        0 => TO_SIGNED(1730,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k1 <= (
-        0 => TO_SIGNED(1799,12),
+        0 => TO_SIGNED(1800,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k2 <= (
-        0 => TO_SIGNED(1862,12),
+        0 => TO_SIGNED(1863,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k3 <= (
         0 => TO_SIGNED(1917,12),
@@ -808,58 +808,58 @@ begin
         0 => TO_SIGNED(1917,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k14 <= (
-        0 => TO_SIGNED(1862,12),
+        0 => TO_SIGNED(1863,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k15 <= (
-        0 => TO_SIGNED(1799,12),
+        0 => TO_SIGNED(1800,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k16 <= (
-        0 => TO_SIGNED(1729,12),
+        0 => TO_SIGNED(1730,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k17 <= (
-        0 => TO_SIGNED(1653,12),
+        0 => TO_SIGNED(1654,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k18 <= (
-        0 => TO_SIGNED(1571,12),
+        0 => TO_SIGNED(1573,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k19 <= (
-        0 => TO_SIGNED(1485,12),
+        0 => TO_SIGNED(1487,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k20 <= (
-        0 => TO_SIGNED(1395,12),
+        0 => TO_SIGNED(1397,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k21 <= (
-        0 => TO_SIGNED(1304,12),
+        0 => TO_SIGNED(1306,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k22 <= (
-        0 => TO_SIGNED(1211,12),
+        0 => TO_SIGNED(1213,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k23 <= (
-        0 => TO_SIGNED(1117,12),
+        0 => TO_SIGNED(1120,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k24 <= (
-        0 => TO_SIGNED(1025,12),
+        0 => TO_SIGNED(1027,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k25 <= (
-        0 => TO_SIGNED(934,12),
+        0 => TO_SIGNED(936,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k26 <= (
-        0 => TO_SIGNED(845,12),
+        0 => TO_SIGNED(848,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k27 <= (
-        0 => TO_SIGNED(760,12),
+        0 => TO_SIGNED(762,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k28 <= (
-        0 => TO_SIGNED(678,12),
+        0 => TO_SIGNED(681,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k29 <= (
-        0 => TO_SIGNED(601,12),
+        0 => TO_SIGNED(603,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k30 <= (
-        0 => TO_SIGNED(528,12),
+        0 => TO_SIGNED(530,12),
         others => (others => '0'));
     u0_m0_wo0_cma1_k31 <= (
-        0 => TO_SIGNED(460,12),
+        0 => TO_SIGNED(463,12),
         others => (others => '0'));
 --altera synthesis_on
     u0_m0_wo0_cma1_r(0) <= u0_m0_wo0_cma1_k0(TO_INTEGER(u0_m0_wo0_cma1_c0(0)));
@@ -1153,85 +1153,85 @@ begin
         0 => TO_SIGNED(26,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k5 <= (
-        0 => TO_SIGNED(36,12),
+        0 => TO_SIGNED(37,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k6 <= (
-        0 => TO_SIGNED(49,12),
+        0 => TO_SIGNED(50,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k7 <= (
-        0 => TO_SIGNED(65,12),
+        0 => TO_SIGNED(66,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k8 <= (
-        0 => TO_SIGNED(84,12),
+        0 => TO_SIGNED(85,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k9 <= (
-        0 => TO_SIGNED(107,12),
+        0 => TO_SIGNED(108,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k10 <= (
-        0 => TO_SIGNED(134,12),
+        0 => TO_SIGNED(135,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k11 <= (
-        0 => TO_SIGNED(166,12),
+        0 => TO_SIGNED(167,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k12 <= (
-        0 => TO_SIGNED(202,12),
+        0 => TO_SIGNED(203,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k13 <= (
-        0 => TO_SIGNED(243,12),
+        0 => TO_SIGNED(245,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k14 <= (
-        0 => TO_SIGNED(289,12),
+        0 => TO_SIGNED(291,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k15 <= (
-        0 => TO_SIGNED(341,12),
+        0 => TO_SIGNED(343,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k16 <= (
-        0 => TO_SIGNED(398,12),
+        0 => TO_SIGNED(400,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k17 <= (
-        0 => TO_SIGNED(460,12),
+        0 => TO_SIGNED(463,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k18 <= (
-        0 => TO_SIGNED(528,12),
+        0 => TO_SIGNED(530,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k19 <= (
-        0 => TO_SIGNED(601,12),
+        0 => TO_SIGNED(603,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k20 <= (
-        0 => TO_SIGNED(678,12),
+        0 => TO_SIGNED(681,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k21 <= (
-        0 => TO_SIGNED(760,12),
+        0 => TO_SIGNED(762,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k22 <= (
-        0 => TO_SIGNED(845,12),
+        0 => TO_SIGNED(848,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k23 <= (
-        0 => TO_SIGNED(934,12),
+        0 => TO_SIGNED(936,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k24 <= (
-        0 => TO_SIGNED(1025,12),
+        0 => TO_SIGNED(1027,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k25 <= (
-        0 => TO_SIGNED(1117,12),
+        0 => TO_SIGNED(1120,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k26 <= (
-        0 => TO_SIGNED(1211,12),
+        0 => TO_SIGNED(1213,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k27 <= (
-        0 => TO_SIGNED(1304,12),
+        0 => TO_SIGNED(1306,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k28 <= (
-        0 => TO_SIGNED(1395,12),
+        0 => TO_SIGNED(1397,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k29 <= (
-        0 => TO_SIGNED(1485,12),
+        0 => TO_SIGNED(1487,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k30 <= (
-        0 => TO_SIGNED(1571,12),
+        0 => TO_SIGNED(1573,12),
         others => (others => '0'));
     u0_m0_wo0_cma0_k31 <= (
-        0 => TO_SIGNED(1653,12),
+        0 => TO_SIGNED(1654,12),
         others => (others => '0'));
 --altera synthesis_on
     u0_m0_wo0_cma0_r(0) <= u0_m0_wo0_cma0_k0(TO_INTEGER(u0_m0_wo0_cma0_c0(0)));

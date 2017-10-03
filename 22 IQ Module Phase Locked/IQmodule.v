@@ -9,8 +9,8 @@ module IQModule(
 	output [6:0] HEX [5:0],
 	//output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
 	output signed [13:0] Q, I,
-	output [3:0] filtValid,
-	output [1:0] filtError,
+	output [1:0] filtValid,
+	output [3:0] filtError,
 	output ncoValid, displayStatus
 );
 //=======================================================
@@ -59,21 +59,21 @@ fir_filter f1 (
 	.clk(CLK),              //Input data is 50MHz, and we'll filter it at 1MHz.
 	.reset_n(~reset),
 	.ast_sink_data(mixed1[26:13]),
-	.ast_sink_valid(2'b11),
+	.ast_sink_valid(1'b1),
 	.ast_sink_error(2'b00),
 	.ast_source_data(filtered1),
-	.ast_source_valid(filtValid[3:2]),
-	.ast_source_error(filtError[1])
+	.ast_source_valid(filtValid[1]),
+	.ast_source_error(filtError[3:2])
 );
 fir_filter f2 (
 	.clk(CLK),
 	.reset_n(~reset),
 	.ast_sink_data(mixed2[26:13]),
-	.ast_sink_valid(2'b11),
+	.ast_sink_valid(2'b1),
 	.ast_sink_error(2'b00),
 	.ast_source_data(filtered2),
-	.ast_source_valid(filtValid[1:0]),
-	.ast_source_error(filtError[0])
+	.ast_source_valid(filtValid[0]),
+	.ast_source_error(filtError[1:0])
 );
 assign I = filtered1[29:16];
 assign Q = filtered2[29:16];

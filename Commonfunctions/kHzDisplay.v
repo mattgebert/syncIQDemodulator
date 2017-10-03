@@ -93,7 +93,7 @@ decParts dec1 (
  display segA (
 		.data4bit(ones),
 		.sevenSegReg(seven_segment_display_0),
-		.blank(~valid),
+		.blank(~valid)
 	);
 
 	display segB (
@@ -177,7 +177,7 @@ module decParts(clk, data18bit, ones, tens, hundreds, thousands, tenthousands, h
 	//Out
 		.valid(blk1),
 		.value(hundredthousands),
-		.dataOut(r1),
+		.dataOut(r1)
 	);
 
 	wire [17:0] r2;
@@ -192,7 +192,7 @@ module decParts(clk, data18bit, ones, tens, hundreds, thousands, tenthousands, h
 	//Out
 		.valid(blk2),
 		.value(tenthousands),
-		.dataOut(r2),
+		.dataOut(r2)
 	);
 
 	wire [13:0] r3;
@@ -207,7 +207,7 @@ module decParts(clk, data18bit, ones, tens, hundreds, thousands, tenthousands, h
 	//Out
 		.valid(blk3),
 		.value(thousands),
-		.dataOut(r3),
+		.dataOut(r3)
 	);
 
 	wire [9:0] r4;
@@ -222,7 +222,7 @@ module decParts(clk, data18bit, ones, tens, hundreds, thousands, tenthousands, h
 	//Out
 		.valid(blk4),
 		.value(hundreds),
-		.dataOut(r4),
+		.dataOut(r4)
 	);
 
 	wire [6:0] r5;
@@ -237,7 +237,7 @@ module decParts(clk, data18bit, ones, tens, hundreds, thousands, tenthousands, h
 	//Out
 		.valid(valid),
 		.value(tens),
-		.dataOut(r5), //Ones are the remainder output of Tens.
+		.dataOut(r5) //Ones are the remainder output of Tens.
 	);
 
 	assign ones[3:0] = r5[3:0];
