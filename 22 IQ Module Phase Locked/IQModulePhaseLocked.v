@@ -120,7 +120,7 @@ IQModule iq1(
 	.ncoValid(m1status[1]),
 	.displayStatus(m1status[0])
 );
-/*
+
 wire [6:0] hexM2 [5:0];
 wire signed [13:0] m2Q, m2I;
 wire [7:0] m2status;
@@ -138,7 +138,7 @@ IQModule iq2(
 	.ncoValid(m2status[1]),
 	.displayStatus(m2status[0])
 );
-*/
+
 //=======================================================
 //  IQ Modules MUXING
 //=======================================================
