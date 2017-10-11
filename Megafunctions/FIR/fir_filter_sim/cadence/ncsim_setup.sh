@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 13.1 162 linux 2017.10.03.18:10:48
+# ACDS 13.1 162 linux 2017.10.11.15:35:33
 
 # ----------------------------------------
 # ncsim - auto-generated simulation script

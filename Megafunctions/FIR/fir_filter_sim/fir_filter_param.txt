@@ -9,9 +9,9 @@ OutFullWidth : 33
 OutFracWidth : 0 
 OutFullFracWidth : 0 
 nChans : 1 
-nTaps : 80 
-clockRate : 50 
-inRate : 50 
+nTaps : 120 
+clockRate : 12.5 
+inRate : 12.5 
 interpN : 1 
 decimN : 1 
 busDataWidth : 16 

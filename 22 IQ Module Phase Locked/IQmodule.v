@@ -1,7 +1,7 @@
 // synthesis VERILOG_INPUT_VERSION SYSTEMVERILOG_2005 
 
 module IQModule(
-	input CLK,
+	input CLK, //12.5MHz
 	input [31:0] phaseInc,
 	input [17:0] sampleFreq, //In kHz specification.
 	input reset,
@@ -23,7 +23,7 @@ module IQModule(
 wire	signed	[13:0]	sin_out1, cos_out1;
 NCO sin1         (
   .phi_inc_i(phaseIncCorr),
-  .clk	    (CLK),
+  .clk	    (CLK), 
   .reset_n  (!reset),
   .clken	 (1'b1),
   .fsin_o	 (sin_out1),

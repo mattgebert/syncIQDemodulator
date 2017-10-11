@@ -49,6 +49,15 @@ output		       DAC_MODE,
 output		       DAC_WRT_A,DAC_WRT_B,
 output		       POWER_ON,OSC_SMA_ADC4,SMA_DAC4
 );
+//=======================================================
+//  Generate 12.5MHz Clock Frequency
+//=======================================================
+reg [1:0] counter = 2'b0;
+always @(posedge CLOCK_50)
+begin
+	counter <= counter + 2'b01;
+end
+wire CLOCK_12 = (counter==2'b11);
 
 //=======================================================
 //  Device Setup
@@ -71,7 +80,7 @@ assign	DAC_MODE = 1; 		       //Mode Select. 1 = dual port, 0 = interleaved.
 //=======================================================
 //10MHz Locking Generator ===============================
 wire	signed	[13:0] sin_out_sync_MHz10;
-NCO sin2 (
+NCO nco1 (
   .phi_inc_i(32'd858999460), //Note, increased from default value of 858993459, which corresponds to a 70Hz correction to hit 10MHz.
   .clk	    (CLOCK_50),
   .reset_n  (!reset),
@@ -89,9 +98,9 @@ wire [6:0] hexM0 [5:0];
 wire signed [13:0] m0Q, m0I;
 wire [7:0] m0status;
 IQModule iq0(
-	.CLK(CLOCK_50),
-	.phaseInc(32'd85899346), //[31:0]  // 85899345.92 * 50MHz / 2^32 = 1MHz
-	.sampleFreq(18'd50000), //In kHz specification. [17:0] 
+	.CLK(CLOCK_12),
+	.phaseInc(32'd343597384), //[31:0]  // 85899345.92 * 50MHz / 2^32 = 1MHz //343597383.68 * 12.5MHz /2^32 = 1MHz
+	.sampleFreq(18'd12500), //In kHz specification. [17:0] 
 	.reset(reset),
 	.signal(inputB),
 	.HEX(hexM0),
@@ -107,9 +116,9 @@ wire [6:0] hexM1 [5:0];
 wire signed [13:0] m1Q, m1I;
 wire [7:0] m1status;
 IQModule iq1(
-	.CLK(CLOCK_50),
-	.phaseInc(32'd8589935), //[31:0]  // 137438953.472 * 50MHz / 2^32 = 1.6MHz // 8589934.592 * 50Mhz / 2^32 = 0.1MHz
-	.sampleFreq(18'd50000), //In kHz specification. [17:0] 
+	.CLK(CLOCK_12),
+	.phaseInc(32'd1030792151), //[31:0]  // 137438953.472 * 50MHz / 2^32 = 1.6MHz // 8589934.592 * 50Mhz / 2^32 = 0.1MHz // 1030792151.04 * 12.5MHz / 2^32 = 3Mhz
+	.sampleFreq(18'd12500), //In kHz specification. [17:0] 
 	.reset(reset),
 	.signal(inputB),
 	.HEX(hexM1),
@@ -120,13 +129,13 @@ IQModule iq1(
 	.ncoValid(m1status[1]),
 	.displayStatus(m1status[0])
 );
-
+/*
 wire [6:0] hexM2 [5:0];
 wire signed [13:0] m2Q, m2I;
 wire [7:0] m2status;
 IQModule iq2(
-	.CLK(CLOCK_50),
-	.phaseInc(32'd21904333), //[31:0]  // 21904333.2096 * 50MHz / 2^32 = 0.255MHz
+	.CLK(CLOCK_12),
+	.phaseInc(32'd103079215), //[31:0]  // 21904333.2096 * 50MHz / 2^32 = 0.255MHz // 103079215.104 * 12.5Mhz / 2^32 = 0.3MHz
 	.sampleFreq(18'd50000), //In kHz specification. [17:0] 
 	.reset(reset),
 	.signal(inputB),
@@ -138,13 +147,13 @@ IQModule iq2(
 	.ncoValid(m2status[1]),
 	.displayStatus(m2status[0])
 );
-
+*/
 //=======================================================
 //  IQ Modules MUXING
 //=======================================================
 //Create Select Signal from SW Input:
 reg [1:0] IQSel;
-always @(posedge CLOCK_50)
+always @(posedge CLOCK_12)
 begin
 	casex(IQSW)
 		4'b0001: IQSel <= 2'b00;
@@ -163,7 +172,7 @@ MNMUX4to1 m2(
 	.sel(IQSel),
 	.dataa('{{m0I, m0Q}}),
 	.datab('{{m1I, m1Q}}),
-	.datac(),//('{{m2I, m2Q}}),//not used
+	.datac(),//not used 		'{{m2I, m2Q}}
 	.datad(),//not used
 	.result(QIdata)
 );
@@ -192,7 +201,7 @@ MNMUX4to1 m1(
 	.dataa(hexM0),
 	.datab(hexM1),
 	.datac(empty),//hexM2),
-	.datad(empty),
+	.datad(empty),//empty
 	.result(hexDisplay)
 );
 

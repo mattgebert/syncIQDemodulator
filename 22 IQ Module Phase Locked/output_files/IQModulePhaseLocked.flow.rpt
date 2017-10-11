@@ -1,5 +1,5 @@
 Flow report for IQModulePhaseLocked
-Fri Oct  6 14:41:07 2017
+Wed Oct 11 17:07:50 2017
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,15 +40,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +---------------------------------+--------------------------------------------+
-; Flow Status                     ; Successful - Fri Oct  6 14:40:30 2017      ;
+; Flow Status                     ; Successful - Wed Oct 11 17:06:47 2017      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; IQModulePhaseLocked                        ;
 ; Top-level Entity Name           ; IQModulePhaseLocked                        ;
 ; Family                          ; Cyclone V                                  ;
 ; Device                          ; 5CSEMA5F31C6                               ;
 ; Timing Models                   ; Preliminary                                ;
-; Logic utilization (in ALMs)     ; 10,382 / 32,070 ( 32 % )                   ;
-; Total registers                 ; 11806                                      ;
+; Logic utilization (in ALMs)     ; 19,797 / 32,070 ( 62 % )                   ;
+; Total registers                 ; 19385                                      ;
 ; Total pins                      ; 150 / 457 ( 33 % )                         ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 137,728 / 4,065,280 ( 3 % )                ;
@@ -67,7 +67,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/06/2017 14:36:50 ;
+; Start date & time ; 10/11/2017 17:00:54 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; IQModulePhaseLocked ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ applicable agreement for further details.
 +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-----------------+------------------+
 ; Assignment Name                     ; Value                                                                                                                                                                                                                                                                                                                                                            ; Default Value ; Entity Name     ; Section Id       ;
 +-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-----------------+------------------+
-; COMPILER_SIGNATURE_ID               ; 0.150726101009905                                                                                                                                                                                                                                                                                                                                                ; --            ; --              ; --               ;
+; COMPILER_SIGNATURE_ID               ; 0.150770165429128                                                                                                                                                                                                                                                                                                                                                ; --            ; --              ; --               ;
 ; ENABLE_SIGNALTAP                    ; On                                                                                                                                                                                                                                                                                                                                                               ; --            ; --              ; --               ;
 ; IP_TOOL_ENV                         ; mwpim                                                                                                                                                                                                                                                                                                                                                            ; --            ; fir_filter      ; --               ;
 ; IP_TOOL_ENV                         ; mwpim                                                                                                                                                                                                                                                                                                                                                            ; --            ; fir_filter_0002 ; --               ;
@@ -292,11 +292,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:35     ; 1.0                     ; 1221 MB             ; 00:00:35                           ;
-; Fitter                    ; 00:02:34     ; 1.9                     ; 2543 MB             ; 00:04:27                           ;
-; Assembler                 ; 00:00:14     ; 1.0                     ; 983 MB              ; 00:00:14                           ;
-; TimeQuest Timing Analyzer ; 00:00:34     ; 2.5                     ; 1686 MB             ; 00:01:22                           ;
-; Total                     ; 00:03:57     ; --                      ; --                  ; 00:06:38                           ;
+; Analysis & Synthesis      ; 00:00:49     ; 1.6                     ; 1356 MB             ; 00:01:16                           ;
+; Fitter                    ; 00:04:19     ; 2.0                     ; 2931 MB             ; 00:08:04                           ;
+; Assembler                 ; 00:00:18     ; 1.0                     ; 1130 MB             ; 00:00:18                           ;
+; TimeQuest Timing Analyzer ; 00:01:00     ; 2.8                     ; 1975 MB             ; 00:02:44                           ;
+; Total                     ; 00:06:26     ; --                      ; --                  ; 00:12:22                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
