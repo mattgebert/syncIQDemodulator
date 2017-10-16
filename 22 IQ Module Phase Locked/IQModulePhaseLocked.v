@@ -176,7 +176,7 @@ MNMUX4to1 m2(
 	.datad(),//not used
 	.result(QIdata)
 );
-
+/*
 //Displaying I or Q Channel
 wire [13:0] QorI [0:0];// = '{QInot ? m0Q[13:0] : m0I[13:0]};
 defparam m3.M = 1; //1Set
@@ -189,9 +189,11 @@ MNMUX4to1 m3(
 	.datad(),//not used
 	.result(QorI)
 );
+*/
 
 //Disaplying to HEX
 wire [6:0] hexDisplay [5:0];
+/*
 wire [6:0] empty [5:0];
 assign empty = '{6{7'b0}};
 defparam m1.M = 6; //6 Sets - 6 Displays
@@ -204,13 +206,15 @@ MNMUX4to1 m1(
 	.datad(empty),//empty
 	.result(hexDisplay)
 );
+*/
 
 //=======================================================
 //  Device Output Drivers
 //=======================================================
 //assign	DAC_DA = {14{sin_out_sync_MHz10[13]}}; //Operates as a Square wave on the DC Analog output.
-
-assign	DAC_DB = outputB; //connected to QInotm0
+//assign	DAC_DB = outputB; //connected to QInotm0
+assign	DAC_DA = outputA;	//I channel
+assign	DAC_DB = outputB;	//Q channel
 assign	HEX0 = hexDisplay[0], HEX1 = hexDisplay[1], HEX2 = hexDisplay[2], HEX3 = hexDisplay[3], HEX4 = hexDisplay[4], HEX5 = hexDisplay[5];
 assign	LEDR[7:0] = m0status;
 //=======================================================
@@ -249,13 +253,15 @@ conv_unsign_to_sign c4 (
 wire[13:0] outputA, outputB;
 defparam c1.N = 14;
 conv_sign_to_unsign c1 (
-.int_signed(14'd0),
+//.int_signed(14'd0),
+.int_signed(QIdata[0][27:14]), //I channel
 .int_unsigned(outputA)
 );
 
 defparam c2.N = 14;
 conv_sign_to_unsign c2 (
-.int_signed(QorI[0]),
+//.int_signed(QorI[0]),
+.int_signed(QIdata[0][13:0]), //Q channel
 .int_unsigned(outputB)
 );
 
