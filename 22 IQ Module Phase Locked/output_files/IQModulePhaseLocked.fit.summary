@@ -1,15 +1,15 @@
-Fitter Status : Successful - Wed Oct 11 17:06:15 2017
+Fitter Status : Successful - Mon Oct 16 20:03:30 2017
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
 Revision Name : IQModulePhaseLocked
 Top-level Entity Name : IQModulePhaseLocked
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Preliminary
-Logic utilization (in ALMs) : 19,797 / 32,070 ( 62 % )
-Total registers : 19385
+Logic utilization (in ALMs) : 32,070 / 32,070 ( 100 % )
+Total registers : 29254
 Total pins : 150 / 457 ( 33 % )
 Total virtual pins : 0
-Total block memory bits : 137,728 / 4,065,280 ( 3 % )
+Total block memory bits : 32,256 / 4,065,280 ( < 1 % )
 Total DSP Blocks : 87 / 87 ( 100 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

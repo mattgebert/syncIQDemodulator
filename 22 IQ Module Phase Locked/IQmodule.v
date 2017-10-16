@@ -22,7 +22,7 @@ module IQModule(
 //=======================================================
 wire	signed	[13:0]	sin_out1, cos_out1;
 NCO sin1         (
-  .phi_inc_i(phaseIncCorr),
+  .phi_inc_i(phaseInc),
   .clk	    (CLK), 
   .reset_n  (!reset),
   .clken	 (1'b1),
@@ -81,19 +81,19 @@ assign Q = filtered2[29:16];
 //=======================================================
 // Phase Correction Specification
 //=======================================================
-wire [31:0] phaseIncCorr;
-phaseCorrector p1(
+//wire [31:0] phaseIncCorr;
+/*phaseCorrector p1(
 	.phaseInc(phaseInc),
 	.CLK(CLK),
 	.phaseIncCorr(phaseIncCorr)
-);
+);*/
 
 //=======================================================
 // NCO|DDS Mixer Frequency Display
 //=======================================================
 wire [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 assign HEX = '{HEX5, HEX4, HEX3, HEX2, HEX1, HEX0};
-kHzDisplay k1 (
+/*kHzDisplay k1 (
 	// Inputs
 	.clk_clk(CLK),
 	.reset(reset),
@@ -108,5 +108,5 @@ kHzDisplay k1 (
 	.seven_segment_display_4(HEX4),
 	.seven_segment_display_5(HEX5),
 	.valid(displayStatus)
-);
+);*/
 endmodule 

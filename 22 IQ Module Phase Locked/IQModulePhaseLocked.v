@@ -129,7 +129,7 @@ IQModule iq1(
 	.ncoValid(m1status[1]),
 	.displayStatus(m1status[0])
 );
-/*
+
 wire [6:0] hexM2 [5:0];
 wire signed [13:0] m2Q, m2I;
 wire [7:0] m2status;
@@ -147,7 +147,7 @@ IQModule iq2(
 	.ncoValid(m2status[1]),
 	.displayStatus(m2status[0])
 );
-*/
+
 //=======================================================
 //  IQ Modules MUXING
 //=======================================================
@@ -172,7 +172,7 @@ MNMUX4to1 m2(
 	.sel(IQSel),
 	.dataa('{{m0I, m0Q}}),
 	.datab('{{m1I, m1Q}}),
-	.datac(),//not used 		'{{m2I, m2Q}}
+	.datac('{{m2I, m2Q}}),//not used 		'{{m2I, m2Q}}
 	.datad(),//not used
 	.result(QIdata)
 );
@@ -200,7 +200,7 @@ MNMUX4to1 m1(
 	.sel(IQSel),
 	.dataa(hexM0),
 	.datab(hexM1),
-	.datac(empty),//hexM2),
+	.datac(hexM2),//hexM2),
 	.datad(empty),//empty
 	.result(hexDisplay)
 );
@@ -208,7 +208,8 @@ MNMUX4to1 m1(
 //=======================================================
 //  Device Output Drivers
 //=======================================================
-assign	DAC_DA = {14{sin_out_sync_MHz10[13]}}; //Operates as a Square wave on the DC Analog output.
+//assign	DAC_DA = {14{sin_out_sync_MHz10[13]}}; //Operates as a Square wave on the DC Analog output.
+
 assign	DAC_DB = outputB; //connected to QInotm0
 assign	HEX0 = hexDisplay[0], HEX1 = hexDisplay[1], HEX2 = hexDisplay[2], HEX3 = hexDisplay[3], HEX4 = hexDisplay[4], HEX5 = hexDisplay[5];
 assign	LEDR[7:0] = m0status;
@@ -222,12 +223,12 @@ wire [3:0] IQSW = SW[9:6];
 //=======================================================
 // Phase Correction Specification
 //=======================================================
-wire [31:0] phaseIncCorr; //10MHz Correction
+/*wire [31:0] phaseIncCorr; //10MHz Correction
 phaseCorrector p1(
 	.phaseInc(32'd858993459), //50MHz * 858993459 / 2^32 = 9.999999998MHz
 	.phaseIncCorr(phaseIncCorr)
 );
-
+*/
 //=======================================================
 //  Signed Unsigned Conversion Modules
 //=======================================================
