@@ -1,5 +1,5 @@
 Flow report for IQModulePhaseLocked
-Mon Oct 16 20:50:06 2017
+Mon Oct 23 11:05:37 2017
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +---------------------------------+--------------------------------------------+
-; Flow Status                     ; Successful - Mon Oct 16 20:48:17 2017      ;
+; Flow Status                     ; Successful - Mon Oct 23 11:03:00 2017      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; IQModulePhaseLocked                        ;
 ; Top-level Entity Name           ; IQModulePhaseLocked                        ;
@@ -48,7 +48,7 @@ applicable agreement for further details.
 ; Device                          ; 5CSEMA5F31C6                               ;
 ; Timing Models                   ; Preliminary                                ;
 ; Logic utilization (in ALMs)     ; 32,070 / 32,070 ( 100 % )                  ;
-; Total registers                 ; 29222                                      ;
+; Total registers                 ; 28998                                      ;
 ; Total pins                      ; 150 / 457 ( 33 % )                         ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 32,256 / 4,065,280 ( < 1 % )               ;
@@ -67,7 +67,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/16/2017 20:36:46 ;
+; Start date & time ; 10/23/2017 10:46:10 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; IQModulePhaseLocked ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ applicable agreement for further details.
 +-------------------------------------+-------------------------------------------------------------------------------------+---------------+-----------------+------------+
 ; Assignment Name                     ; Value                                                                               ; Default Value ; Entity Name     ; Section Id ;
 +-------------------------------------+-------------------------------------------------------------------------------------+---------------+-----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 0.150814660611291                                                                   ; --            ; --              ; --         ;
+; COMPILER_SIGNATURE_ID               ; 0.150871597029071                                                                   ; --            ; --              ; --         ;
 ; ENABLE_SIGNALTAP                    ; Off                                                                                 ; --            ; --              ; --         ;
 ; IP_TOOL_ENV                         ; mwpim                                                                               ; --            ; fir_filter      ; --         ;
 ; IP_TOOL_ENV                         ; mwpim                                                                               ; --            ; fir_filter_0002 ; --         ;
@@ -267,24 +267,24 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:05     ; 1.6                     ; 1561 MB             ; 00:01:44                           ;
-; Fitter                    ; 00:09:23     ; 2.3                     ; 3482 MB             ; 00:19:59                           ;
-; Assembler                 ; 00:00:24     ; 1.0                     ; 1292 MB             ; 00:00:23                           ;
-; TimeQuest Timing Analyzer ; 00:01:46     ; 3.0                     ; 2498 MB             ; 00:04:59                           ;
-; Total                     ; 00:12:38     ; --                      ; --                  ; 00:27:05                           ;
+; Analysis & Synthesis      ; 00:01:27     ; 1.0                     ; 1531 MB             ; 00:01:25                           ;
+; Fitter                    ; 00:13:59     ; 1.0                     ; 3313 MB             ; 00:13:56                           ;
+; Assembler                 ; 00:00:28     ; 1.0                     ; 1288 MB             ; 00:00:27                           ;
+; TimeQuest Timing Analyzer ; 00:02:33     ; 1.8                     ; 2288 MB             ; 00:04:29                           ;
+; Total                     ; 00:18:27     ; --                      ; --                  ; 00:20:17                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                             ;
-+---------------------------+------------------+----------------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
-+---------------------------+------------------+----------------+------------+----------------+
-; Analysis & Synthesis      ; MU00058799       ; Ubuntu 16.04.3 ; 16         ; x86_64         ;
-; Fitter                    ; MU00058799       ; Ubuntu 16.04.3 ; 16         ; x86_64         ;
-; Assembler                 ; MU00058799       ; Ubuntu 16.04.3 ; 16         ; x86_64         ;
-; TimeQuest Timing Analyzer ; MU00058799       ; Ubuntu 16.04.3 ; 16         ; x86_64         ;
-+---------------------------+------------------+----------------+------------+----------------+
++-----------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                               ;
++---------------------------+--------------------+----------------+------------+----------------+
+; Module Name               ; Machine Hostname   ; OS Name        ; OS Version ; Processor type ;
++---------------------------+--------------------+----------------+------------+----------------+
+; Analysis & Synthesis      ; matt-ThinkPad-E470 ; Ubuntu 16.04.3 ; 16         ; x86_64         ;
+; Fitter                    ; matt-ThinkPad-E470 ; Ubuntu 16.04.3 ; 16         ; x86_64         ;
+; Assembler                 ; matt-ThinkPad-E470 ; Ubuntu 16.04.3 ; 16         ; x86_64         ;
+; TimeQuest Timing Analyzer ; matt-ThinkPad-E470 ; Ubuntu 16.04.3 ; 16         ; x86_64         ;
++---------------------------+--------------------+----------------+------------+----------------+
 
 
 ------------
