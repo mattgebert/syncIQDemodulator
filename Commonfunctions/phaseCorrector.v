@@ -16,13 +16,15 @@ module phaseCorrector (
 	input CLK,
 	output [31:0] phaseIncCorr
 );
-addsub a1(
-	.add_sub(1'b0), //1 to add, 0 to subtract
+/*addsub a1(
+	.add_sub(1'b1), //1 to add, 0 to subtract
 	.clock(CLK),
 	.dataa(phaseInc),
-	.datab((phaseInc>>17)-(phaseInc>>21)+(phaseInc>>22)+(phaseInc>>23)+(phaseInc>>24)-(phaseInc>>25)-(phaseInc>>26) + (phaseInc>>28) + (phaseInc>>29) -(phaseInc>>30) - (phaseInc>>31)),
+	.datab((phaseInc>>17)-(phaseInc>>21)+(phaseInc>>22)+(phaseInc>>23)+(phaseInc>>24)-(phaseInc>>25)-(phaseInc>>26) + (phaseInc>>28) + (phaseInc>>29) -(phaseInc>>30) + (phaseInc>>31)),
 	.result(phaseIncCorr)
-);
+);*/
+
+assign phaseIncCorr[31:0] = phaseInc[31:0] + (phaseInc[31:0]>>17)-(phaseInc[31:0]>>21)+(phaseInc[31:0]>>22)+(phaseInc[31:0]>>23)+(phaseInc[31:0]>>24)-(phaseInc[31:0]>>25)-(phaseInc[31:0]>>26) + (phaseInc[31:0]>>28) + (phaseInc[31:0]>>29) -(phaseInc[31:0]>>30) + (phaseInc[31:0]>>31);
 
 endmodule
 

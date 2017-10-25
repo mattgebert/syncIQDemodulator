@@ -50,6 +50,13 @@ output		       DAC_WRT_A,DAC_WRT_B,
 output		       POWER_ON,OSC_SMA_ADC4,SMA_DAC4
 );
 //=======================================================
+//  Parameters:
+//=======================================================
+wire [17:0] sampleFreq = 18'd12500;
+wire [31:0] phaseInc0 = 32'd343597384; //343597383.68 * 12.5MHz /2^32 = 1MHz
+wire [31:0] phaseInc1 = 32'd1030792151; // 1030792151.04 * 12.5MHz / 2^32 = 3Mhz;
+wire [31:0] phaseInc2 = 32'd103079215; // 103079215.104 * 12.5Mhz / 2^32 = 0.3MHz;
+//=======================================================
 //  Generate 12.5MHz Clock Frequency
 //=======================================================
 reg [1:0] counter = 2'b0;
@@ -79,7 +86,7 @@ assign	DAC_MODE = 1; 		       //Mode Select. 1 = dual port, 0 = interleaved.
 //  Driving PLLS & NCO's
 //=======================================================
 //10MHz Locking Generator ===============================
-wire	signed	[13:0] sin_out_sync_MHz10;
+/*wire	signed	[13:0] sin_out_sync_MHz10;
 NCO nco1 (
   .phi_inc_i(32'd858999460), //Note, increased from default value of 858993459, which corresponds to a 70Hz correction to hit 10MHz.
   .clk	    (CLOCK_50),
@@ -88,64 +95,64 @@ NCO nco1 (
   .fsin_o	 (sin_out_sync_MHz10),
   .fcos_o   (),
   .out_valid()
-);
+);*/
 
 //=======================================================
 //  IQ Modules
 //=======================================================
 //wire [6:0] m0hex0, m0hex1, m0hex2,m0hex3,m0hex4,m0hex5;
-wire [6:0] hexM0 [5:0];
+//wire [6:0] hexM0 [5:0];
 wire signed [13:0] m0Q, m0I;
 wire [7:0] m0status;
 IQModule iq0(
 	.CLK(CLOCK_12),
-	.phaseInc(32'd343597384), //[31:0]  // 85899345.92 * 50MHz / 2^32 = 1MHz //343597383.68 * 12.5MHz /2^32 = 1MHz
-	.sampleFreq(18'd12500), //In kHz specification. [17:0] 
+	.phaseInc(phaseInc0), //343597383.68 * 12.5MHz /2^32 = 1MHz
+	.sampleFreq(sampleFreq), //In kHz specification. [17:0] 
 	.reset(reset),
 	.signal(inputB),
-	.HEX(hexM0),
+//	.HEX(hexM0),
 	.Q(m0Q), //[13:0] 
 	.I(m0I), 
 	.filtValid(m0status[7:6]), //[3:0] 
 	.filtError(m0status[5:2]),
-	.ncoValid(m0status[1]),
-	.displayStatus(m0status[0])
+	.ncoValid(m0status[1])//,
+	//.displayStatus(m0status[0])
 );
 
-wire [6:0] hexM1 [5:0];
+//wire [6:0] hexM1 [5:0];
 wire signed [13:0] m1Q, m1I;
 wire [7:0] m1status;
 IQModule iq1(
 	.CLK(CLOCK_12),
-	.phaseInc(32'd1030792151), //[31:0]  // 137438953.472 * 50MHz / 2^32 = 1.6MHz // 8589934.592 * 50Mhz / 2^32 = 0.1MHz // 1030792151.04 * 12.5MHz / 2^32 = 3Mhz
-	.sampleFreq(18'd12500), //In kHz specification. [17:0] 
+	.phaseInc(phaseInc1), // 1030792151.04 * 12.5MHz / 2^32 = 3Mhz
+	.sampleFreq(sampleFreq), //In kHz specification. [17:0] 
 	.reset(reset),
 	.signal(inputB),
-	.HEX(hexM1),
+//	.HEX(hexM1),
 	.Q(m1Q), //[13:0] 
 	.I(m1I), 
 	.filtValid(m1status[7:6]), //[3:0] 
 	.filtError(m1status[5:2]),
-	.ncoValid(m1status[1]),
-	.displayStatus(m1status[0])
+	.ncoValid(m1status[1])//,
+	//.displayStatus(m1status[0])
 );
 
-wire [6:0] hexM2 [5:0];
+//wire [6:0] hexM2 [5:0];
 wire signed [13:0] m2Q, m2I;
 wire [7:0] m2status;
 IQModule iq2(
 	.CLK(CLOCK_12),
-	.phaseInc(32'd103079215), //[31:0]  // 21904333.2096 * 50MHz / 2^32 = 0.255MHz // 103079215.104 * 12.5Mhz / 2^32 = 0.3MHz
-	.sampleFreq(18'd50000), //In kHz specification. [17:0] 
+	.phaseInc(phaseInc2), // 103079215.104 * 12.5Mhz / 2^32 = 0.3MHz
+	.sampleFreq(sampleFreq), //In kHz specification. [17:0] 
 	.reset(reset),
 	.signal(inputB),
-	.HEX(hexM2),
+//	.HEX(hexM2),
 	.Q(m2Q), //[13:0] 
 	.I(m2I), 
 	.filtValid(m2status[7:6]), //[3:0] 
 	.filtError(m2status[5:2]),
-	.ncoValid(m2status[1]),
-	.displayStatus(m2status[0])
+	.ncoValid(m2status[1])//,
+	//.displayStatus(m2status[0])
 );
 
 //=======================================================
@@ -191,9 +198,9 @@ MNMUX4to1 m3(
 );
 */
 
-//Disaplying to HEX
-wire [6:0] hexDisplay [5:0];
 /*
+//Displying to HEX
+wire [6:0] hexDisplay [5:0];
 wire [6:0] empty [5:0];
 assign empty = '{6{7'b0}};
 defparam m1.M = 6; //6 Sets - 6 Displays
@@ -215,7 +222,7 @@ MNMUX4to1 m1(
 //assign	DAC_DB = outputB; //connected to QInotm0
 assign	DAC_DA = outputA;	//I channel
 assign	DAC_DB = outputB;	//Q channel
-assign	HEX0 = hexDisplay[0], HEX1 = hexDisplay[1], HEX2 = hexDisplay[2], HEX3 = hexDisplay[3], HEX4 = hexDisplay[4], HEX5 = hexDisplay[5];
+//assign	HEX0 = hexDisplay[0], HEX1 = hexDisplay[1], HEX2 = hexDisplay[2], HEX3 = hexDisplay[3], HEX4 = hexDisplay[4], HEX5 = hexDisplay[5];
 assign	LEDR[7:0] = m0status;
 //=======================================================
 //  Physical Controls
@@ -233,6 +240,45 @@ phaseCorrector p1(
 	.phaseIncCorr(phaseIncCorr)
 );
 */
+
+
+
+//=======================================================
+// NCO|DDS Mixer Frequency Display
+//=======================================================
+//Displaying HEX Signal using a single kHzDisplay Module.
+wire [31:0] phaseDisplay [0:0];
+wire [31:0] empty [0:0];
+assign empty = '{1{32'b0}};
+defparam m5.M = 1; //6 Sets - 6 Displays
+defparam m5.N = 32; //7 Bits per set - 7 Lights Per Display
+MNMUX4to1 m5(
+	.sel(IQSel),
+	.dataa('{phaseInc0}),
+	.datab('{phaseInc1}),
+	.datac('{phaseInc2}),//hexM2),
+	.datad(empty),//empty
+	.result(phaseDisplay)
+);
+
+//Display
+kHzDisplay k1 (
+	// Inputs
+	.clk_clk(CLOCK_12),
+	.reset(reset),
+	.sampleFreq(sampleFreq), //18bits are kHz
+	.phaseInc(phaseDisplay[0]), //32 bits //phaseIncCorr
+
+	// Outputs
+	.seven_segment_display_0(HEX0),
+	.seven_segment_display_1(HEX1),
+	.seven_segment_display_2(HEX2),
+	.seven_segment_display_3(HEX3),
+	.seven_segment_display_4(HEX4),
+	.seven_segment_display_5(HEX5),
+	.valid(m0status[0])
+);
+
 //=======================================================
 //  Signed Unsigned Conversion Modules
 //=======================================================
