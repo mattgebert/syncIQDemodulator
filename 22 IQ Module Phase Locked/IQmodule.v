@@ -6,12 +6,12 @@ module IQModule(
 	input [17:0] sampleFreq, //In kHz specification.
 	input reset,
 	input signed [13:0] signal,
-	output [6:0] HEX [5:0],
+	//output [6:0] HEX [5:0],
 	//output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
 	output signed [13:0] Q, I,
 	output [1:0] filtValid,
 	output [3:0] filtError,
-	output ncoValid, displayStatus
+	output ncoValid//, displayStatus
 );
 //=======================================================
 //  Output Assignments
@@ -22,7 +22,7 @@ module IQModule(
 //=======================================================
 wire	signed	[13:0]	sin_out1, cos_out1;
 NCO sin1         (
-  .phi_inc_i(phaseInc),
+  .phi_inc_i(phaseIncCorr),
   .clk	    (CLK), 
   .reset_n  (!reset),
   .clken	 (1'b1),
@@ -81,32 +81,12 @@ assign Q = filtered2[29:16];
 //=======================================================
 // Phase Correction Specification
 //=======================================================
-//wire [31:0] phaseIncCorr;
-/*phaseCorrector p1(
+wire [31:0] phaseIncCorr;
+phaseCorrector p1(
 	.phaseInc(phaseInc),
 	.CLK(CLK),
 	.phaseIncCorr(phaseIncCorr)
-);*/
+);
 
-//=======================================================
-// NCO|DDS Mixer Frequency Display
-//=======================================================
-wire [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
-assign HEX = '{HEX5, HEX4, HEX3, HEX2, HEX1, HEX0};
-/*kHzDisplay k1 (
-	// Inputs
-	.clk_clk(CLK),
-	.reset(reset),
-	.sampleFreq(sampleFreq), //18bits are kHz
-	.phaseInc(phaseIncCorr), //32 bits //phaseIncCorr
 
-	// Outputs
-	.seven_segment_display_0(HEX0),
-	.seven_segment_display_1(HEX1),
-	.seven_segment_display_2(HEX2),
-	.seven_segment_display_3(HEX3),
-	.seven_segment_display_4(HEX4),
-	.seven_segment_display_5(HEX5),
-	.valid(displayStatus)
-);*/
 endmodule 
