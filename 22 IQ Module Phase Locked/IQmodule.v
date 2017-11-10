@@ -89,4 +89,8 @@ phaseCorrector p1(
 );
 
 
+<<<<<<< HEAD
 endmodule 
+=======
+endmodule 
+>>>>>>> b61f722f3d5017a4bb17d4424fa16189d8f5c454
